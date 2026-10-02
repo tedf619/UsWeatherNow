@@ -90,9 +90,8 @@ public class TileRain : Tile
   public override string GetUri(int zoom, int x, int y, int version = 0)
   {
     var bounds = GetTileBounds(zoom, x, y);
-    string l = "";
     return $"{EndPoint}/export?bbox={F(bounds.MinX)},{F(bounds.MinY)},{F(bounds.MaxX)},{F(bounds.MaxY)}" +
-           $"&bboxSR=3857&imageSR=3857&size=256,256&format=png32&transparent=true{l}&f=image&_={version}";
+           $"&bboxSR=3857&imageSR=3857&size=256,256&format=png32&transparent=true&f=image&_={version}";
   }
 }
 

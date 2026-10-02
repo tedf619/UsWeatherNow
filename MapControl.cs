@@ -51,7 +51,7 @@ public sealed class MapControl : UserControl
   public Tile GetTileClouds() => layerClouds;
   public Tile GetTileRain() => layerRain;
 
-  string GetCacheKey(Tile tileLayer, int zoom, int x, int y) => $"{tileLayer.Name}|{tileLayer.Version}|{zoom}|{x}|{y}";
+  string GetCacheKey(Tile tile, int zoom, int x, int y) => $"{tile.Name}|{tile.Version}|{zoom}|{x}|{y}";
 
   /// <summary>
   /// Calculates the size of each side of the square world Mercator map in pixels at a given zoom level.

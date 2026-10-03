@@ -229,10 +229,11 @@ public sealed class MapControl : UserControl
               (int)Math.Round(ty * TileSizeInPixels - top),   // top-left Y of the tile in client coordinates
               TileSizeInPixels, TileSizeInPixels);            // width and height of the tile in client coordinates
 
-          // if the tile is already downloaded and cached, draw it; otherwise, request it
+          // if the tile is already downloaded and cached, draw it; otherwise download it
 
-          if (tileCache.TryGetValue(key, out var bmp))
-            g.DrawImage(bmp, destination, 0, 0, bmp.Width, bmp.Height, GraphicsUnit.Pixel, imageAttributes);
+          if (tileCache.TryGetValue(key, out var bitmap))
+            g.DrawImage(bitmap, destination, 0, 0, bitmap.Width, bitmap.Height, GraphicsUnit.Pixel, imageAttributes);
+
           else if (!failedTiles.Contains(key))
             RequestTile(layer, Zoom, wrappedX, ty, key);
         }
